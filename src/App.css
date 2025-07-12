@@ -1,0 +1,350 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+/* App container */
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Calculator container */
+.calculator {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 16px;
+  color: #718096;
+  font-weight: 500;
+}
+
+/* Input section */
+.input-section {
+  margin-bottom: 32px;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 12px;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.input-container:focus-within {
+  border-color: #667eea;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.currency-symbol,
+.percentage-symbol {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4a5568;
+  margin: 0 8px;
+}
+
+.amount-input,
+.percentage-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3748;
+  outline: none;
+  min-width: 0;
+}
+
+.amount-input::placeholder,
+.percentage-input::placeholder {
+  color: #a0aec0;
+}
+
+/* Results section */
+.results-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 32px;
+  color: white;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.result-item:last-child {
+  margin-bottom: 0;
+}
+
+.result-item.total {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.result-label {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.result-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.result-item.total .result-value {
+  font-size: 28px;
+}
+
+/* Number pad */
+.number-pad {
+  margin-bottom: 24px;
+}
+
+.pad-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pad-row:last-child {
+  margin-bottom: 0;
+}
+
+.pad-row:last-child {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.number-btn,
+.clear-btn,
+.backspace-btn {
+  height: 60px;
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-btn {
+  background: #f7fafc;
+  color: #2d3748;
+  border: 2px solid #e2e8f0;
+}
+
+.number-btn:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+.number-btn:active {
+  transform: translateY(0);
+}
+
+.number-btn.zero {
+  grid-column: span 2;
+}
+
+.clear-btn {
+  background: #fed7d7;
+  color: #c53030;
+  border: 2px solid #feb2b2;
+}
+
+.clear-btn:hover {
+  background: #feb2b2;
+  border-color: #fc8181;
+}
+
+.backspace-btn {
+  background: #feebc8;
+  color: #c05621;
+  border: 2px solid #fbd38d;
+}
+
+.backspace-btn:hover {
+  background: #fbd38d;
+  border-color: #f6ad55;
+}
+
+/* Tip pad */
+.tip-pad {
+  margin-top: 24px;
+}
+
+.tip-pad h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.tip-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.tip-btn {
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #667eea;
+  color: white;
+  border: 2px solid #667eea;
+}
+
+.tip-btn:hover {
+  background: #5a67d8;
+  border-color: #5a67d8;
+  transform: translateY(-1px);
+}
+
+.tip-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .calculator {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+  }
+  
+  .header p {
+    font-size: 14px;
+  }
+  
+  .input-container {
+    padding: 14px;
+  }
+  
+  .amount-input,
+  .percentage-input {
+    font-size: 18px;
+  }
+  
+  .currency-symbol,
+  .percentage-symbol {
+    font-size: 18px;
+  }
+  
+  .number-btn,
+  .clear-btn,
+  .backspace-btn {
+    height: 55px;
+    font-size: 18px;
+  }
+  
+  .tip-btn {
+    height: 45px;
+    font-size: 14px;
+  }
+  
+  .result-value {
+    font-size: 20px;
+  }
+  
+  .result-item.total .result-value {
+    font-size: 24px;
+  }
+}
+
+/* Focus states for accessibility */
+.number-btn:focus,
+.clear-btn:focus,
+.backspace-btn:focus,
+.tip-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+/* Animation for results */
+.results-section {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
